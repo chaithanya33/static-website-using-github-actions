@@ -1,4 +1,4 @@
-name: Deploy static website to GitHub Actions
+name: Deploy static website
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Configure AWS Credentials
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -22,4 +22,4 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws s3 sync build/ s3://static.web.bucket.chaithu --delete
+          aws s3 sync . s3://static.web.bucket.chaithu --delete
