@@ -15,5 +15,5 @@ jobs:
         - name: code to s3 static
           run: |
             aws s3 sync./ s3://static.web.bucket.chaithu/ \
-            --exclude "*"
+            --exclude "*" \
             --include "index.html"
